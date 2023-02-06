@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html><html moznomarginboxes mozdisallowselectionprint><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+
+<title>Balance Sheet - xxx - Manager</title><link rel="shortcut icon" href="/resources/favicon.ico"><link rel="apple-touch-icon" href="/resources/icon-iphone.png"><link rel="apple-touch-icon" sizes="72x72" href="/resources/icon-ipad.png"><link rel="apple-touch-icon" sizes="114x114" href="/resources/icon-iphone4.png"><link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.css?18.1.99.0" /><link rel="stylesheet" type="text/css" href="resources/theme.css?18.1.99.0" /><style>ul, ol { padding-left: 10px }.float-left { float: left !important; }.float-right { float: right !important; }.text-align-left { text-align: left !important; }.text-align-right { text-align: right !important; }div.content { background-color: #fff; padding: 30px; box-shadow: 0px 0px 5px #ccc; border: 1px solid #ccc; width: auto }a.file-close:hover { color: #999; }#sidenav div { padding: 0px; background-color: #fafafa; box-shadow: inset 1px 1px 0px #fff; }#sidenav img { opacity: 0.4; vertical-align: top; width: 16px; height: 16px }#sidenav .tab-active { background-color: #fff; border-right: none }#sidenav a.tab-link, #sidenav span.tab-link { line-height: 16px; display: block; position: relative; white-space: nowrap; padding: 12px; font-size: 11px; font-weight: bold }#sidenav table { border: 1px solid #ccc; border-top: none; font-family: 'Lucida Grande',Verdana,sans-serif; border-spacing: 0px; width: 100% }#sidenav .tab-active table { border-right: 1px solid #fff }#sidenav a:hover { text-decoration: none }#sidenav a:hover img { opacity: 0.6 }#sidenav .tab-active img { opacity: 0.6 }#sidenav span.count { background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 3px 3px 3px 3px; color: #666666; font-size: 10px; font-weight: bold; padding: 3px 6px; }#sidenav span.count-zero { border: 1px solid #EEEEEE; color: #DDDDDD }#sidenav span.tab-label { margin-left: 10px; }#sidenav a:hover span.tooltiptext { visibility: visible }.tooltiptext { visibility: hidden; background-color: #000; color: #fff; text-align: center; padding: 5px 10px; border-radius: 6px; position: absolute; z-index: 99999; top: 7px; left: 42px; }.tooltiptext::after { content: ' '; position: absolute; top: 50%; right: 100%; margin-top: -5px; border-width: 5px; border-style: solid; border-color: transparent black transparent transparent; }@media print { body { -webkit-print-color-adjust: exact !important; } }</style><link rel="stylesheet" type="text/css" href="resources/custom.css?18.1.99.0" /></head><body style="background: #eee url('resources/noise.png')"><noscript><div class="print-display-none" style="background-color: yellow; padding: 10px; text-align: center; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 16px">Javascript Error</div></noscript><style>#navbar { z-index: 9; position: fixed; right: 0; left: 0; top: 0; margin: 0px; }#navbar { font-size: 12px; background-color: #FAFAFA; background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2)); background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2); background-image: -o-linear-gradient(top, #ffffff, #f2f2f2); background-image: linear-gradient(to bottom, #ffffff, #f2f2f2); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0); *zoom: 1; background-repeat: repeat-x; border: 1px solid #D4D4D4; font-weight: bold; border-width: 0 0 1px 0; box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); }#navbar table { width: 100%; border-collapse: collapse; }#navbar td { width: 1px; white-space: nowrap; }#navbar td.active { color: #555555; background-color: #e5e5e5; -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125); -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125); box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125); }#navbar a { color: #777777; display: block; padding: 15px }#navbar a:hover { color: #333; text-decoration: none }#navbar a img { margin-right: 6px; margin-top: -4px; opacity: 0.4;}#navbar a:hover img { opacity: 0.8 }</style><div id="navbar" class="print-display-none"><div style="padding-right: 15px"><table><tr><td><a href="javascript:window.history.back();"><img src="resources/webalys/_16px/triangle-big-3-01.png" style="margin-top: -2px" />Back</a></td><td class="active"><a href="businesses"><img src="resources/webalys/_16px/places-11.png" style="margin-top: -2px" />Businesses</a></td><td><a href="users"><img src="resources/webalys/_16px/users-23.png" style="margin-top: -2px" />Users</a></td><td><a href="preferences"><img src="resources/webalys/_16px/setting-2.png" style="margin-top: -2px" />Preferences</a></td><td><a href="support"><img src="resources/webalys/_16px/objects-5.png" style="margin-top: -2px" />Support</a></td><td style="width: auto"></td></tr></table></div></div><div class="print-reset" style="padding: 35px; padding-top: 85px"><table class="print-reset" style="width: 100%; border-collapse: separate"><tr><td class="print-reset" style="border: 1px solid #ccc; padding-left: 20px; padding-right: 20px; background-color: #f3f3f3; box-shadow: inset 1px 1px 0px #fff;" colspan="2"><div class="print-display-none" style="line-height: 54px"><table style="width: 100%"><tr><td style="vertical-align: middle; width: 1px; padding-right: 10px"><a href="businesses" class="text-decoration-none file-close" style="color: #ccc; font-size: 24px; display: block; font-weight: bold">&times;</a></td><td style="vertical-align: middle"><span style="text-shadow: 1px 1px 0 #FFFFFF; color: #555555; font-size: 18px; font-weight: bold">xxx</span><a href="business-name-form?Referrer=balance-sheet-view%3FKey%3Da2d08a92-47c6-43dd-85f4-7ad2f665d5ef%26FileID%3D6d85f30c-9b6b-4d68-9bbd-068f00e13e29&FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" style="font-size: 11px; margin-left: 10px; color: #999; text-shadow: 1px 1px 0px #fff">Rename</a></td><td style="width: 1px; white-space: nowrap"><a href="backup?FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" class="btn btn-default btn-sm" style="font-weight: bold">Backup</a></td></tr></table></div></td></tr><tr><td class="print-reset" style="width: 1px; vertical-align: top; padding: 0; background-image: url('resources/graypixel.png'); background-repeat:repeat-y; background-position: right top"><div id="sidenav" class="print-display-none"><div><div><table><tr><td><a href="summary?FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" class="tab-link"><img src="resources/webalys/_16px/business-76.png" /><span class="tab-label hide-on-collapse">Summary</span><span class="show-on-collapse hidden"><span class="tooltiptext">Summary</span></span></a></td></tr></table></div><div><table><tr><td><a href="journal-entries?FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" class="tab-link"><img src="resources/webalys/_16px/design-6.png" /><span class="tab-label hide-on-collapse">Journal Entries</span><span class="show-on-collapse hidden"><span class="tooltiptext">Journal Entries</span></span></a></td><td class="count-column hide-on-collapse" style="text-align: right; padding-right: 10px; width: 1px"><span class="count">2</span></td></tr></table></div><div class="tab-active"><table><tr><td><a href="reports?FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" class="tab-link"><img src="resources/webalys/_16px/text-9.png" /><span class="tab-label hide-on-collapse">Reports</span><span class="show-on-collapse hidden"><span class="tooltiptext">Reports</span></span></a></td></tr></table></div><div><table><tr><td><a href="settings?FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" class="tab-link"><img src="resources/webalys/_16px/setting-8.png" /><span class="tab-label hide-on-collapse">Settings</span><span class="show-on-collapse hidden"><span class="tooltiptext">Settings</span></span></a></td></tr></table></div></div></div><script type="text/javascript">var compact = false;function toggleNav() {
+
+compact = !compact;
+document.cookie = 'compact='+compact.toString();
+
+var elements = document.querySelectorAll('.hide-on-collapse');
+for (var i = 0, len = elements.length; i < len; i++) {
+    if (compact) elements[i].classList.add('hidden');
+    else elements[i].classList.remove('hidden');
+}
+
+var elements = document.querySelectorAll('.show-on-collapse');
+for (var i = 0, len = elements.length; i < len; i++) {
+    if (!compact) elements[i].classList.add('hidden');
+    else elements[i].classList.remove('hidden');
+}
+
+}</script><a href="javascript:toggleNav();" class="print-display-none" style="position: fixed; bottom: 1px; left: 1px; padding: 9px"><img src="resources/webalys/_16px/interface-32.png" style="opacity: 0.5" /></a><div style="height: 100px"><div class="hide-on-collapse" style="text-align: center; padding-top: 10px"><a href="tabs?Referrer=c844fbb0-8eaf-4df5-af08-66e944d3a0f5&Key=ac789d1f-034f-4964-a8b5-ebfffc3511f2&FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" class="btn btn-link btn-xs" style="font-weight: bold; text-shadow: 1px 1px 0px #fff">Customize</a></div><div class="hide-on-collapse" style="text-align: center; padding-top: 10px"><img src="resources/arrow.png" class="print-display-none" /></div></div></td><td class="print-reset" style="vertical-align: top; background-color: #fff; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc; padding: 30px"><style>#printable-content table { width: 100%; border-collapse: separate }#printable-content td, #printable-content th { padding: 0px; vertical-align: top; font-weight: normal }#printable-content * { border-width: 0px; border-color: #000; border-style: solid }</style><div class="panel panel-default"><div class="panel-heading"><table style="border-collapse: separate; width: 100%"><tr><td style="padding-right: 10px; white-space: nowrap; width: 1px; height: 32px"><span class="header">Balance Sheet</span></td><td style="padding: 0px 10px; white-space: nowrap; width: 1px"><a href="balance-sheet-form?Referrer=c844fbb0-8eaf-4df5-af08-66e944d3a0f5&Key=a2d08a92-47c6-43dd-85f4-7ad2f665d5ef&FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" class="btn btn-sm btn-default" style="font-weight: bold">Edit
+</a>&nbsp;<button class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px" onclick="javascript:window.print()">Print</button>
+<button id="btn-print" class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px" onclick="javascript:printToPdf()">PDF<img src="resources/ajax-loader.gif" id="btn-print-ajax" style="margin-left: 10px; display: none" /></button><button class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px" data-toggle="modal" data-target="#email-modal">Email</button><div id="email-modal" class="modal"><div class="modal-dialog"><div class="modal-content"><div class="modal-header" style="background-color: #f5f5f5; border-top-left-radius: 6px; border-top-right-radius: 6px;"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><div class="header" style="font-size: 18px">Email</div></div><div class="modal-body" style="background-color: #f9f9f9; padding: 10px; box-shadow: inset 0px 1px 0px #fff"><table style="width: 100%; border-spacing: 10px; border-collapse: separate"><tr><td style="vertical-align: middle; width: 1px; white-space: nowrap"><label>To</label></td><td><input type="text" id="email-modal-to" class="form-control input-sm" style="width: 100%" name="To" /></td></tr><tr><td style="vertical-align: middle; width: 1px; white-space: nowrap"><label>Subject</label></td><td><input type="text" id="email-modal-subject" class="form-control input-sm" style="width: 100%" name="Subject" value="kjkjhkhjk" placeholder="kjkjhkhjk" /></td></tr><tr><td colspan="2"><textarea id="email-modal-body" class="form-control input-sm" style="width: 100%; height: 150px" name="Body" spellcheck="true"></textarea></td></tr></table><div id="emailError" style="color: red; font-weight: bold; display: none; padding: 10px; padding-top: 0px"></div></div><div class="modal-footer" style="margin-top: 0px; box-shadow: 1px 1px 0 #fff inset; background-color: #f5f5f5; border-top: 1px solid #dddddd; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;"><button class="btn btn-link btn-sm" style="font-weight: bold" data-dismiss="modal">Cancel</button><button id="email-btn" class="btn btn-default btn-sm" style="font-weight: bold" onclick="javascript:email()">Send</button><img src="resources/ajax-loader.gif" style="display: none; margin-left: 10px; margin-right: 10px" id="email-ajax-indicator" /></div></div></div></div><script src="resources/jquery/jquery-1-8-2-min.js" type="text/javascript"></script><script src="resources/bootstrap/js/bootstrap-min.js?v=18.1.99.0" type="text/javascript">
+</script><script type="text/javascript">function email() { 
+    from = $('#email-modal-from').val();
+	to = $('#email-modal-to').val();
+	subject = $('#email-modal-subject').val();
+    body = $('#email-modal-body').val();
+    htmlContent = $('#printable-content').clone();
+    htmlContent.find('a.internal').each(function(){ var text = $(this).text(); $(this).before(text); $(this).remove() });
+    emailTracking = $('#email-modal-emailtracking').is(':checked') ? 'true' : 'false';
+	$('#email-ajax-indicator').show();
+    $('#emailError').hide();
+    $('#email-btn').prop('disabled', true);
+	$.ajax({
+			url: 'email?FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29',
+			type: 'post',
+			data: { From: from, Body: body, To: to, Subject: subject, EmailTracking: emailTracking, Html: htmlContent.html() },
+	        // callback handler that will be called on success
+			success: function(response, textStatus, jqXHR){
+                $('#email-btn').prop('disabled', false);
+				$('#email-ajax-indicator').hide();
+                $('[data-dismiss=modal]').trigger({ type: 'click' });
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+			},
+			// callback handler that will be called on error
+			error: function(jqXHR, textStatus, errorThrown){
+				$('#email-ajax-indicator').hide();
+				$('#email-btn').prop('disabled', false);
+                $('#emailError').html(jqXHR.responseText);
+                $('#emailError').show();
+			}
+		});
+}</script><script type="text/javascript">function printToPdf() { 
+    $('#btn-print').prop('disabled', true);
+    $('#btn-print-ajax').show();
+	$.ajax({
+			url: 'pdf?FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29',
+			type: 'post',
+			data: { Html: $('#printable-content').html() },
+			success: function(response, textStatus, jqXHR){
+                $('#btn-print').prop('disabled', false);
+                $('#btn-print-ajax').hide();
+                location.href = response;
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				$('#btn-print').prop('disabled', false);
+                $('#btn-print-ajax').hide();
+                alert(jqXHR.responseText);
+			}
+		});
+}</script></td><td></td></tr></table></div><div class="panel-body well"><div id="printable-content" class="panel" style="font-size: 12px; float: left; min-width: 800px"><table style="padding: 30px"><thead><tr><th style="font-weight: bold; font-size: 16px; text-align: center; padding-bottom: 10px" colspan="2">xxx</th></tr><tr><th style="font-weight: bold; font-size: 24px; text-align: center; padding-bottom: 10px" colspan="2">kjkjhkhjk</th></tr><tr><th style="font-weight: bold; font-size: 16px; text-align: center; padding-bottom: 10px" colspan="2">As at 5/22/2018</th></tr><tr><th style="border-bottom-width: 1px"></th><th style="border-bottom-width: 1px; font-weight: bold; width: 80px; padding: 3px; text-align: right">hjgh</th></tr><tr><th colspan="2">&nbsp;</th></tr></thead><tbody><tr><td style="padding: 3px; padding-left: 5px; font-weight: bold" colspan="2">Equity</td></tr><tr><td style="padding: 3px; padding-left: 25px">Retained earnings</td><td style="padding: 3px; text-align: right; white-space: nowrap; font-weight: bold"><a href="balance-sheet-transactions?BalanceSheet=a2d08a92-47c6-43dd-85f4-7ad2f665d5ef&To=2018-05-22&Account=74dfd025-d68e-4a99-9c78-5d43e17c0e09&FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" class="internal">(3,169,244.00)</a></td></tr><tr><td style="padding: 3px; padding-left: 25px">Suspense</td><td style="padding: 3px; text-align: right; white-space: nowrap; font-weight: bold"><a href="balance-sheet-transactions?BalanceSheet=a2d08a92-47c6-43dd-85f4-7ad2f665d5ef&To=2018-05-22&Account=11211c9e-0988-4d16-8bf2-fa39487123aa&FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" class="internal">3,169,244.00</a></td></tr><tr><td style="padding: 3px; padding-left: 25px; font-weight: bold">Total — Equity</td><td style="padding: 3px; border-top-width: 1px; border-bottom-width: 1px; white-space: nowrap; text-align: right; font-weight: bold">0.00</td></tr><tr><td colspan="2">&nbsp;</td></tr><tr><td style="padding: 3px; padding-left: 25px; padding-left: 5px; border-top-width: 1px; border-bottom-width: 1px; font-weight: bold">Total liabilities & equity</td><td style="padding: 3px; border-top-width: 1px; border-bottom-width: 1px; white-space: nowrap; text-align: right; font-weight: bold">0.00</td></tr><tr><td colspan="2">&nbsp;</td></tr></tbody><tfoot><tr><td style="text-align: center; padding-top: 20px" colspan="2">jkhgkjhkjh k  kh</td></tr></tfoot></table></div><div style="clear: both"></div></div></div><div style="text-align: right; margin-top: -15px"><a href="balance-sheet-view?Key=a2d08a92-47c6-43dd-85f4-7ad2f665d5ef&Export=True&FileID=6d85f30c-9b6b-4d68-9bbd-068f00e13e29" class="btn btn-default btn-xs" style="color: #999; text-shadow: 1px 1px 0px #fff">Export</a></div><script type="text/javascript">var help = false;function toggleHelp() {
+
+help = !help;
+document.cookie = 'help='+help.toString();
+
+if (help)
+{
+    document.getElementById('help-btn').style.color = '#999';
+    document.getElementById('btn-image-off').style.display = 'none';
+    document.getElementById('btn-image-on').style.display = 'inline';
+    document.getElementById('help-links').style.display = 'block';
+    document.getElementById('help-placeholder').style.display = 'none';
+}
+else
+{
+    document.getElementById('help-btn').style.color = '#ccc';
+    document.getElementById('btn-image-off').style.display = 'inline';
+    document.getElementById('btn-image-on').style.display = 'none';
+    document.getElementById('help-links').style.display = 'none';
+    document.getElementById('help-placeholder').style.display = 'block';
+}
+
+}</script><a href="javascript:toggleNav();" class="print-display-none" style="position: fixed; bottom: 1px; left: 1px; padding: 9px"><img src="resources/webalys/_16px/interface-32.png" style="opacity: 0.5" /></a></td></tr></table><style>.input-group .select2-container .select2-choice { border-bottom-left-radius: 0; border-top-left-radius: 0 }.select2-container .select2-choice { height: 30px; line-height: 30px }.select2-container .select2-choice .select2-chosen { font-size: 12px; color: #555 }.select2-container .select2-choice.select2-default .select2-chosen { color: #ccc }.select2-container, .select2-drop { font-size: 12px; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }.select2-container .select2-choice { background-image: none; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset }.select2-container .select2-choice { border: 1px solid #ccc }.select2-container-active .select2-choice { border: 1px solid #5897FB }.select2-container .select2-choice .select2-arrow { background: none; border-left: none }table.input td input, table.input td select, table.input td .select2-container { margin-bottom: 0px }.alert { box-shadow: 1px 1px 0 #fff inset; }.panel-heading .label { box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5) inset; }.panel-default { min-width: 0px; }.tt-suggestions { font-size: 12px; }</style></div></body></html>

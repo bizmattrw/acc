@@ -1,0 +1,103 @@
+.board .number{
+	float:left;
+}
+.board .icon{
+	float:right;
+}
+.panel{
+    border-radius:0px;
+}
+.panel-left{  
+    width: 100px;
+    height: 100px;background: #0866C6;/* border: 2px solid #4590DA; */
+    /* border-radius: 100%; */
+    overflow: hidden;
+    
+    margin: 12px;}
+    .panel-left .fa-5x {
+    font-size: 3em;color: rgb(240, 155, 34);
+    padding: 29px 0;
+    margin-bottom:30px;}
+    .panel-right{  
+    height: 124px;
+    background: transparent;
+    margin-bottom: 0;color: #AFAFAF;
+    
+    float: left;text-align: left;padding-left: 20px;font-size: 16px;text-shadow: none;font-weight: normal;text-align: center;}
+    .panel-right h3{  
+    font-size: 40px;
+    padding: 18px 10px 13px 0;color: #5D5D5D;}
+    .panel-right strong{
+        font-weight:normal;
+        color: #737373;
+    }
+    .panel-back {
+        background-color:#fff;
+    
+    }
+    .panel-body {
+        height: auto;
+        width: auto;
+        background-color: white;
+        }
+    .panel-default {
+      border-color: #ECECEC;
+    }
+    .panel-default > .panel-heading {color: #555;
+    color: #9C27B0;
+    border-top-color: #9C27B0;
+    font-weight:bold;background: #FFFFFF;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-left: 20px;
+    text-shadow: none;}
+    .panel-heading {
+      /* padding: 15px 15px 0px; */
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+    .board .panel {
+        padding: 25px 15px;
+        border:none;
+        background:#fff;
+    }
+    .board .panel .icon .fa {
+        font-size: 30px;
+        position: relative;
+        color:#ffffff;
+        background: #7b1fa2;
+        right: 20%;
+        top: 20%;
+        padding: 15px;
+        border-radius: 50%;
+    }
+    .panel-primary{
+        display:inline-block;
+        margin-bottom: 30px;
+        width:100%;
+    }
+    .number h3 {
+        font-size: 32px;
+        color: #676767;
+    }
+    .number small {
+        font-size: 14px;
+        color: #9C27B0;
+        font-weight: 600;
+        text-transform: uppercase;
+        display: inline-block;
+    }
+    .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
+        background-color: #9C27B0;
+    }
+    /* Only Chrome */
+*::-webkit-scrollbar {width: 8px;}
+*::-webkit-scrollbar-thumb {background-color: white; background-clip: padding-box;}
+*::-webkit-scrollbar-track {background-color: #5b0281e5; }
+/* Only IE */
+* {scrollbar-face-color: white; scrollbar-shadow-color: #5b0281e5; scrollbar-highlight-color: #5b0281e5}
+/* Only FireFox */
+* {scrollbar-color: white #5b0281e5; scrollbar-width: thin;}
+/* View Scrollbar */
+.sidebar-nav {overflow-y: auto;overflow-x: hidden;}

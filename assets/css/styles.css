@@ -1,0 +1,53 @@
+.container-fluid {
+    padding: 0px;
+}
+#row {
+    margin-left: 0px;
+    height: 10vh;
+    width: 100%;
+}
+.row {
+    margin-right: 0px;
+}
+#col {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.navbar {
+    padding: 0rem 0rem;
+}
+.sidebar-nav .metismenu a > i {
+    color: #ffffff;
+    padding: 8px;
+    width: 30px;
+    text-align: center;
+}
+.sidebar-nav .metismenu li > a {
+    color: #ffffff;
+    background: transparent;
+    text-shadow: none;
+    font-size: 14px;
+}
+@media(max-width:768px) {
+    #sideNav{
+        display:none;
+    } 
+    #page-wrapper {
+        position: relative;
+        top: 93px;
+    }
+}
+.card {
+    border-radius: 0px;
+}
+#modal-7 {
+    color: black;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+#modal-7 .fa {
+    color: #9C27B0;
+}
+#modal-7 button .fa {
+    color: white;
+}
