@@ -37,7 +37,7 @@ while($speak=mysqli_fetch_array($selspeaker1))
 $balance=$speak['balance'];
 //$cqty=$speak['currentquantity'];
 }
-$selspeaker1=mysqli_query($con,"select currentquantity from stock where item='$item' and coopid='$_SESSION[coopid]' order by id desc limit 1") or die(mysqli_error($con));
+$selspeaker1=mysqli_query($con,"select currentquantity from stock where item='$item' and coopid='$_SESSION[coopid]' order by id desc ") or die(mysqli_error($con));
 while($speak=mysqli_fetch_array($selspeaker1))
 {
 $cqty=$speak['currentquantity'];
@@ -45,7 +45,7 @@ $cqty=$speak['currentquantity'];
 //$amount=$value*$quantity;
 //$balance=$balance-$amount;
 $cqty=$cqty-$quantity;
-$upspeak1=mysqli_query($con,"insert into stock values('','$item','$reason','','$quantity','debit','$cqty','','$date','','$_SESSION[coopid]')")or die(mysqli_error($con));
+$upspeak1=mysqli_query($con,"insert into stock values('','$item','$reason','','$quantity','debit','$cqty','','$date','','$_SESSION[coopid]',1)")or die(mysqli_error($con));
 //mysqli_query($con,"insert into retained values('','0','$value','$date','$item','$_SESSION[coopid]')")or die(mysqli_error($con));
    echo"Data saved successfully..";
      echo"<meta http-equiv=\"refresh\" content=\"1;URL=updatestock.php\">";

@@ -334,8 +334,35 @@ else
 <div class="panel-body">
 
 <?php include('header.php'); ?>
-
-
+<script>
+function loadBugdetLineAmount(el) {
+				
+				var amountInput = document.getElementById("currentquantity");
+				console.log({
+					amountInput
+				});
+currentquantity
+				$.ajax({
+					type: "POST",
+					url: "ajaxgetstock.php",
+					data: 'item=' + el.value,
+					success: function(data) {
+						amountInput.value = data;
+					}
+				});
+			}
+                        function validateInput() {
+				var inputValue = document.getElementById("quantity").value;
+				var currentQuantity = document.getElementById("currentquantity").value;
+                                
+                                if(Number(inputValue)>Number(currentQuantity))
+                                {
+                                        alert('The quantity is exceeding the available quantity '+inputValue);
+                                        quantity.value = inputValue.slice(0, inputValue.length - 1);
+                                }
+                        }
+  
+                        </script>
 <div class="panel panel-default"><div class="panel-heading"><span class="header">
 <div style="padding: 10px 15px; border-radius: 3px; border: 1px solid #ddd; background-color: #F5F5F5; box-shadow: 1px 1px 0 #FFFFFF inset; color: #CCCCCC; 
 font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 1px 1px 0 #FFFFFF;">Recording Stock Movement</div>
@@ -344,13 +371,14 @@ font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 1px 1px 0 #F
 <div class="panel-body" style="background-color: #f9f9f9; box-shadow: inset 0px 1px 0px #fff; padding: 30px"><table><tr><td style="padding: 0px">
 <div class="form-group"><label>Choose Item </label>
                        
-						   						<select name="item" class="form-control input-sm" required>
+						   						<select name="item" class="form-control input-sm" 
+                                                                                                onchange="loadBugdetLineAmount(this)" required>
 						<option></option>
                                   <?php 
 								  $year=date("Y");
 								include('dbcon.php');
 								  
-								  $user_query=mysqli_query($con,"select * from stock where year(date)='$year' and quantityadded>0 and coopid='$_SESSION[coopid]' group by item ")or die(mysqli_error($con));
+								  $user_query=mysqli_query($con,"select * from stock where year(date)='$year' and currentquantity>0 and coopid='$_SESSION[coopid]' group by item ")or die(mysqli_error($con));
 									while($row=mysqli_fetch_array($user_query)){
 									$account=$row['item']; 
 									echo"<option>$account</option>";
@@ -359,8 +387,15 @@ font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 1px 1px 0 #F
 
   </select>
 
-</div></td><td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Quantity</label>
-<input type="text" class="form-control input-sm" style="width: 100px; text-align: center" name="quantity" placeholder="Quantity" REQUIRED  />
+</div></td>
+<td style="padding: 0px; padding-left: 5px">
+											<div class="form-group">
+												<label>Current Amount: </label>
+												<input style="display: inline;" name="currentquantity" type="text" class="form-control input-sm budget-line-amount" id="currentquantity" style="width: 25px; text-align: center" placeholder="Current Quantity" required readonly />
+											</div>
+										</td>
+<td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Quantity</label>
+<input type="text" class="form-control input-sm" style="width: 100px; text-align: center" name="quantity" onkeyup="validateInput()" id="quantity" placeholder="Quantity" REQUIRED  />
 </div></td></tr><tr>
 <td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Reason</label>
 <input type="text" class="form-control input-sm" style="width: 200px; text-align: center" name="reason" placeholder="Impamvu" REQUIRED  />

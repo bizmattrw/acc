@@ -9,10 +9,13 @@
  
   
 <div style="padding: 10px 15px; border-radius: 3px; border: 1px solid #ddd; background-color: #F5F5F5; box-shadow: 2px 2px 0 #FFFFFF inset; color: #CCCCCC; 
-font-size: 18px; font-weight: bold; line-height: 20px; text-shadow: 1px 1px 0 #FFFFFF;">STOCK
-                   <a href="addstock.php"> <button type="button" class="btn btn-sm btn-primary btn-create">Add to Stock</button></a>
+font-size: 18px; font-weight: bold; line-height: 20px; text-shadow: 1px 1px 0 #FFFFFF;">
+STOCK
+    					
+<a href="pricestock.php"> <button type="button" class="btn btn-sm btn-primary btn-create">Add Items</button></a>            
+<a href="addstock.php"> <button type="button" class="btn btn-sm btn-primary btn-create">Add to Stock</button></a>
 				    <a href="removestock.php"> <button type="button" class="btn btn-sm btn-primary btn-create">Remove to Stock</button></a>
-					<a href="pricestock.php"> <button type="button" class="btn btn-sm btn-primary btn-create">Add Prices</button></a></DIV>
+					</DIV>
 <div class="panel-body">
 <?php include('header.php'); ?>
 
@@ -24,7 +27,7 @@ font-size: 18px; font-weight: bold; line-height: 20px; text-shadow: 1px 1px 0 #F
 								include('dbcon.php');
 								  
 $sel=mysqli_query($con,"select sum(quantityadded) as quantityadded,sum(quantityremoved) as quantityremoved,date,item,currentquantity,balance,id,impamvu as reason from stock 
- where coopid='$_SESSION[coopid]' group by item,date,impamvu
+ where coopid='$_SESSION[coopid]' and status=0 group by item,date,impamvu
 ORDER BY id desc") or die(mysqli_error($con));
    echo"<thead> <tr><td align=center colspan=2><em class='fa fa-cog'></em></td>
     <th align=center>Item</td><th align=center>Reason</td><th align=center>Qauantity added</td><th align=center>Quantity removed</td><th align=center>Date</td>

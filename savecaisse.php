@@ -31,11 +31,14 @@ include "./session.php";
           $handAmount = $_POST['hand-amount'];
           $sources = $_POST['hand-source'];
           $references = $_POST["hand-reference"];
+          $year=date("Y");
           $upspeak1 = mysqli_query($con, "update caisse set status=1");
           foreach ($handAmount as $key => $amount) {
                $source = $sources[$key];
                $reference = $references[$key];
                $balance = $balancec + $amount;
+               $issa = mysqli_query($con, "update sources set amountremain=amountremain-'$amount',status='1' where year='$year' and codename='$source' and coopid='$_SESSION[coopid]' ") or die(mysqli_error($con));
+               $insert_income=mysqli_query($con,"insert into income values('','$source','$amount',now(),'$_SESSION[coopid]')")or die(mysqli_error($con));
                $sel5 = mysqli_query($con, "select count(id) as id from caisse order by id DESC LIMIT 1") or die(mysqli_error($con));
                $row1 = mysqli_fetch_array($sel5);
                $id = $row1['id'];
@@ -103,7 +106,7 @@ include "./session.php";
                $ins1 = mysqli_query($con, "INSERT INTO expenses VALUES('$amount', ' $reason','$bline',' ','$date', 'caisse',' ',' ', '$_SESSION[coopid]')") or die("failed to select" . mysqli_error($con));
                $upspeak1 = mysqli_query($con, "INSERT INTO `caisse`(`particulars`, `amount`, `reason`, `action`, `balance`, `date`, `budgetline`, `coopid`, `refno`) 
                     VALUES ('$particular', '$amount' ,'$reason', 'credit', '$balance', '$date', '$bline', '$cooperativeId', '$reference')") or die("FAILED TO INSERT CAISSE" . mysqli_error($con));
-               $upspeak2 = mysqli_query($con, "insert into itubyamutungo values('','$date','$reason','$amount','$id','','',
+               $upspeak2 = mysqli_query($con, "insert into itubyamutungo values('','$date','$reason','$amount','$id','','$date',
                     '','$cooperativeId')") or die("whats hell IYONGERAMUTUNGO" . mysqli_error($con));
                    
 
@@ -120,10 +123,11 @@ include "./session.php";
                     <tr><th>Date</th><th>Reference No</th><th>Budget Line</th><TH>Particular</th><th>Reason</th><th>Amount</th></tr>';
                     $output .= '<tr><td>' . $date . '</td><td>' . $reference . '</td><td>' . $account . '</td><td>' . $particular . '</td><td>' . $reason . '</td><td>' . $amount . '</td></tr></table><br>';
 
-                    $output .= 'I ' . $particular . ' accept that I have received the amount stated above from COOPERATIVE NAME <BR><BR>';       
+                    $output .= 'I ' . $particular . ' accept that I have received the amount stated above from COOPERATIVE NAME <BR><BR><BR><BR>';       
 
           }
         
+
 
           $pdf = new Pdf();
           $file_name = 'PaymentProof-.pdf';

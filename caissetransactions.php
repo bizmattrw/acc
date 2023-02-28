@@ -450,7 +450,19 @@ font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 2px 2px 0 #F
 										<td style="padding: 0px; padding-left: 5px">
 											<div class="form-group">
 												<label>Source: </label>
-												<input style="display: inline;" name="hand-source[]" type="text" class="form-control input-sm" id="value" style="width: 100px; text-align: center" placeholder="Source" required />
+												<select style="display: inline;" name="hand-source[]" class="form-control input-sm" id="value" style="width: 100px; text-align: center" placeholder="Source" required />
+												<option>Choose Income Source</option>
+                                                <?php
+                                                $year = date("Y");
+                                                include('dbcon.php');
+
+                                                $user_query = mysqli_query($con, "select * from sources where  coopid='$_SESSION[coopid]' group by codename ") or die(mysqli_error($con));
+                                                while ($row = mysqli_fetch_array($user_query)) {
+                                                    $source = $row['codename'];
+                                                    $lineId = $row["id"];
+                                                    echo "<option value='$source'>$source</option>";
+                                                }
+                                                ?>
 											</div>
 										</td>
 										<td style="padding: 0px; padding-left: 5px">

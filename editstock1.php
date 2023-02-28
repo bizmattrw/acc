@@ -10,17 +10,10 @@ $action=$_POST['action'];
 
 include("dbcon.php");
 
-$insert1=mysql_query("update stock set item='$item',quantityadded='$qa',quantityremoved='$qr',date='$date',action='$action' where id='$id'") or die(mysql_error()); 
+$insert1=mysqli_query($con,"update stock set item='$item',quantityadded='$qa',quantityremoved='$qr',date='$date',action='$action' where id='$id'") or die(mysqli_error($con)); 
 
-
-if(!$insert1)
-{ 
-echo"failed to update?" .mysql_error();
-}
- else{
       echo"<meta http-equiv=\"refresh\" content=\"1;URL=updatestock.php\">";
 
-	}
 	}
 
 	?>

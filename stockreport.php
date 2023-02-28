@@ -88,7 +88,7 @@ $year=date("Y");
 $sel2=mysqli_query($con,"select pprice from levels where year='$year' and pprice>0 and item='$item' and coopid='$_SESSION[coopid]'");
 $med2=mysqli_fetch_array($sel2);
 $pprice=$med2['pprice'];
-$sel3=mysqli_query($con,"select sprice from levels where year='$year' and sprice>0 and coopid='$_SESSION[coopid]'");
+$sel3=mysqli_query($con,"select sprice from levels where year='$year' and sprice>0 and item='$item' and coopid='$_SESSION[coopid]'");
 $med3=mysqli_fetch_array($sel3);
 
 $sprice=$med3['sprice'];

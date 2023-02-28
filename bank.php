@@ -774,6 +774,30 @@ font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 2px 2px 0 #F
 
 
                             <table id="debit-based" style="display: none;">
+                            <tr>
+                                    <td style="padding: 0px; padding-left: 5px">
+                                        <div class="form-group">
+                                            <label>Income Source: </label> </td>
+                                            <td>
+                                            <select name="income" class="form-control input-sm" style="visibility:hidden" id="income">
+                                                <option>Choose Income Source</option>
+                                                <?php
+                                                $year = date("Y");
+                                                include('dbcon.php');
+
+                                                $user_query = mysqli_query($con, "select * from sources where  coopid='$_SESSION[coopid]' group by codename ") or die(mysqli_error($con));
+                                                while ($row = mysqli_fetch_array($user_query)) {
+                                                    $source = $row['codename'];
+                                                    $lineId = $row["id"];
+                                                    echo "<option value='$source'>$source</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </td>
+                                   
+                                   
+                                </tr>
                                 <tr>
                                     <td style="padding: 0px; padding-left: 5px;">
                                         <div class="form-group">
@@ -838,7 +862,7 @@ font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 2px 2px 0 #F
                                 <tr>
                                     <td style="padding: 0px; padding-left: 5px">
                                         <div class="form-group">
-                                            <input type="submit" value="Save" style="font-size:18px" onClick="return (verify());" />
+                                            <input type="submit" value="Save" style="font-size:18px" onClick="return (verify());" name="save">
                                         </div>
                                     </td>
                                     <td style="padding: 0px; padding-left: 5px">
@@ -889,11 +913,13 @@ font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 2px 2px 0 #F
                     el.form['slip'].style.visibility = 'visible';
                     el.form['piecedebit'].style.visibility = 'visible';
                     el.form['photodebit'].style.visibility = 'visible';
+                    el.form['income'].style.visibility = 'visible';
                 } else {
                     el.form['ds'].style.visibility = 'hidden';
                     el.form['slip'].style.visibility = 'hidden';
                     el.form['piecedebit'].style.visibility = 'hidden';
                     el.form['photodebit'].style.visibility = 'hidden';
+                    el.form['income'].style.visibility = 'hidden';
                 }
 
                 if (el.value == 'transfer') {

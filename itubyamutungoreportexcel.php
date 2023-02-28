@@ -20,8 +20,10 @@ line-height: 28px }div.panel table { width: 100%; font-size: 12px }div.panel tab
 <div class="panel panel-default">
 <div class="panel-body well"><div id="printable-content" class="panel" style="font-size: 12px; float: center; min-width: 100px">
 <p><p><p><p><p><p><p><p><p><p><p><p><div><div><table style="width: 100%"><tr><td style="width: 50%; padding-right: 10px; vertical-align: top" colspan="2">
-<?php $date1=$_POST['date1']; $date2=$_POST['date2'];
-?>
+<?php
+                                $date1=$_GET['date1'];
+								$date2=$_GET['date2'];
+                                ?>
 <div style="padding-bottom: 10px"><div style="text-align: center; color: #ccc; font-size: 14px; font-weight: bold; text-shadow: 1px 1px 0px #fff">
 ITUBYAMUTUNGO REPORT
 <?php
@@ -29,15 +31,16 @@ ITUBYAMUTUNGO REPORT
 </div></td></tr><tr><td style="width: 50%; padding-right: 10px; vertical-align: top">
 <div class="panel"><div class="header">
   <div class="balance">
+
   
-  </div><div class="title">ITUBYAMUTUNGO  <?php echo"EXPORT TO EXCEL <a href='itubyamutungoreportexcel.php?date1=$date1&date2=$date2'><img src='images/xls.png'>";?></div></div><div class="body">
   
-</a>&nbsp;
+  </div><div class="title">ITUBYAMUTUNGO</div></div><div class="body">
+  
   <table><tr>
   <td style="text-align: right; font-weight: bold; width: 1px; white-space: nowrap">
   
 					
-                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-list" id="example">
+                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-list" id="example" border="1">
                                 <thead>
                                     <tr>
 									<th>DATE</th> 
@@ -46,7 +49,7 @@ ITUBYAMUTUNGO REPORT
                                         <th>DATE IN BANK</th>
 										<th>DATE IN CREDIT</th>
 										<th>VALUE</th>
-										<th>PROOF</th>
+								
 										                                  
                                                
                                     </tr>
@@ -55,30 +58,29 @@ ITUBYAMUTUNGO REPORT
 								 
                                   <?php 
 								include('dbcon.php');
-								$date1=$_POST['date1'];
-								$date2=$_POST['date2'];
-								  								
-								  
+									
+                                header("Content-type: application/vnd-ms-excel");
+                                header("Content-Disposition: attachment; filename=ITUBYAMUTUNGO.xls");
 								  $totvalue=0;
-								  $user_query=mysqli_query($con,"select * from itubyamutungo where coopid='$_SESSION[coopid]' and date between '$date1' and '$date2' ")or die(mysql_error());
+								  $user_query=mysqli_query($con,"select * from itubyamutungo where coopid='$_SESSION[coopid]' and date between '$date1' and '$date2' ")or die(mysqli_error($con));
 									while($row=mysqli_fetch_array($user_query)){
 									$id=$row['id']; ?>
 									 <tr class="del<?php echo $id ?>">
 									    <td align="center"><?php echo $row['date']; ?></td>
                                     <td align="center"><?php echo $row['reason']; ?></td>
 									<?php $y=date("Y"); $cno=$row['caisseno']; $bdate=$row['bankdate']; $cdate=$row['creditdate'];
+									 $y=date("Y"); $cno=$row['caisseno']; $bdate=$row['bankdate']; $cdate=$row['creditdate'];
 									if($cno==0){$cno1="-";}else {$cno1=$cno;} if($bdate=="0000-00-00"){$bdate1="-";}else {$bdate1=$bdate;}
 									if($cdate=="0000-00-00"){$cdate1="-";}else {$cdate1=$cdate;}
 									$image = (!empty($row['picture'])) ? 'pieces/'.$row['picture'] : 'pieces/noimage.jpg';
+									
 									  ?> 
                                     <td align="center"><?php echo $cno1;?></td> 
                                     <td align="center"><?php echo $bdate1; ?></td>
 									<td align="center"><?php echo $cdate1; ?></td>
 									<td align="center"><?php 
 									$totvalue+=$row['amount']; echo number_format($row['amount']); ?></td>
-									<td align="center"><?php echo "<img src=$image height='70px' width='100px'>"; ?></td>
-                                 
-                                 
+									
 									
 									     <!-- Modal edit user -->
 								
@@ -86,13 +88,13 @@ ITUBYAMUTUNGO REPORT
 									<?php } ?>
                            
                                 </tbody>
+                                </tr><tr><th colspan="5" align="center">
+TOTAL  </th>
+<th><?php  $totvaluef=number_format($totvalue); echo"$totvaluef";?></th></tr>
                             </table>
 </td>
- </td></tr><tr><td colspan="2">
- <div class="panel"><div class="body" style="background-color: #ffffee">
- 
- <div class="balance"><?php  $totvaluef=number_format($totvalue); echo"$totvaluef";?></div>
- <div class="title">TOTAL</div></div></div></table></div></div>
+ </td>
+ </table></div></div>
                             </table></table>
 
 

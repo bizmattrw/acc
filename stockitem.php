@@ -337,32 +337,38 @@ else
 
 <div class="panel panel-default"><div class="panel-heading"><span class="header">
 <div style="padding: 10px 15px; border-radius: 3px; border: 1px solid #ddd; background-color: #F5F5F5; box-shadow: 1px 1px 0 #FFFFFF inset; color: #CCCCCC; 
-font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 2px 2px 0 #FFFFFF;">Recording Stock Movement</div>
+font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 2px 2px 0 #FFFFFF;">Recording Assets</div>
+<script type="text/javascript" src="script.js"></script>
 
-<FORM action="savestock1.php" method="post">
-<div class="panel-body" style="background-color: #f9f9f9; box-shadow: inset 0px 1px 0px #fff; padding: 30px"><table><tr><td style="padding: 0px">
-<div class="form-group"><label>Item </label>
-                        <select  name="item" type="text" class="form-control input-sm" id="item"  style="width: 180px; text-align:center" REQUIRED />
-                        <option value=""></option>
-                        <?php
-                        include('dbcon.php');
-								  
-								  $user_query=mysqli_query($con,"select * from levels where coopid='$_SESSION[coopid]' group by item order by item asc")or die(mysqli_error($con));
-									while($row=mysqli_fetch_array($user_query)){
-									$account=$row['item']; 
-									echo"<option>$account</option>";
-									}
-                                                                        ?>
-</select>
-</div></td><td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Quantity</label>
-<input type="text" class="form-control input-sm" style="width: 100px; text-align: center" name="quantity" placeholder="Quantity" REQUIRED  />
-</div></td></tr><tr>
-<td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Reason</label>
-                      <input name="reason" type="text" class="form-control input-sm" id="reason" style="width: 300px; text-align: center" placeholder="Impamvu" REQUIRED  />
-</div></td><td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Date</label><div class="controls">
- <input name="date" type="text" class="form-control input-sm" id="date" style="width: 100px; margin-bottom: 0px; text-align: center"  title=" date "  onclick="ds_sh(this);"
- data-bind="datePicker: StartDate" REQUIRED />
-                      </div></div></td>
+<FORM action="saveassets.php" method="post">
+<div class="panel-body" style="background-color: #f9f9f9; box-shadow: inset 0px 1px 0px #fff; padding: 30px">
+							<input type="button" value="+" class="" onClick="addRow('dataTable');" />
+							<input type="button" value="Remove"  onClick="deleteRow('dataTable');" />
+							<table id="dataTable">
+								<tbody id="budget-based" style="display: YES;">
+									<tr>
+										<td><input type="checkbox" required="required" name="chk[]" checked="checked" /></td>
+										<td style="padding: 0px; padding-left: 5px">
+
+<div class="form-group"><label>Asset Name </label><input type="text" class="form-control input-sm" style="width: 180px"  name="asset[]" />
+</div></td><td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Value</label>
+<input type="text" class="form-control input-sm" style="width: 100px; text-align: center" name="value[]" placeholder="Value"  />
+</div></td>
+<td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Depreciation</label>
+                      <input name="value1[]" type="text" class="form-control input-sm" id="value1" style="width: 100px; text-align: center" placeholder="%"  />
+</div></td>
+<td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Date</label><div class="controls">
+                        <input name="date[]" type="date" class="form-control input-sm" id="date" style="width: 100px; margin-bottom: 0px; text-align: center"  title=" date " 
+ data-bind="datePicker: StartDate" /></td>
+<td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Asset Type</label>
+                            fixed
+                            <input type="checkbox" name="status[]" value="fixed" checked>
+                           &nbsp;&nbsp;&nbsp; current
+                            <input type="checkbox" name="status[]" value="current">
+                            
+                           
+                        </div>
+                      </td>
 
 </table><div></div></div>
 
@@ -371,9 +377,8 @@ font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 1px 1px 0 #F
 <img src="resources/ajax-loader.gif" id="ajaxIndicator" style="display: none; margin-right: 10px" /><div class="btn-group">
 <input type="submit" id="btnCreate" class="btn btn-primary" style="font-weight: bold" value="Create" name="submit"/>
 
-</FORM><a href="updatestock.php"><input type="button" id="btnCreate" class="btn" style="font-weight: bold" aria-hidden="true" value="Edit" />
+</FORM><a href="updateassets.php"><input type="button" id="btnCreate" class="btn" style="font-weight: bold" aria-hidden="true" value="Edit" />
 </a></button><ul class="dropdown-menu"><li></ul></div></div></div></div></TABLE></TABLE></TABLE></TABLE>
 
 <?php include_once "footer.php" ?>
-
 

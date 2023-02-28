@@ -125,12 +125,12 @@ include("dbcon.php");
 									//AMOUNT FROM STOCK
 								  
 								  $user_query=mysqli_query($con,"select quantityadded as qty1,item from stock where action='credit' 
-								  and date>='$date1' and date<='$date2' and coopid='$_SESSION[coopid]'")or die("FAILED STOCK".mysqli_error($con));
+								  and date>='$date1' and date<='$date2' and coopid='$_SESSION[coopid]' GROUP BY item")or die("FAILED STOCK".mysqli_error($con));
 								  $totcreditstock=$totstock=0;
 									while($row=mysqli_fetch_array($user_query)){
 									$qty1=$row['qty1'];
 									$item=$row['item'];
-								  $selp=mysqli_query($con,"select sprice from levels where item='item' 
+								  $selp=mysqli_query($con,"select sprice from levels where item='$item' 
 								   and coopid='$_SESSION[coopid]'")or die("FAILED SELLING PRICE".mysqli_error($con));
 								   $rows=mysqli_fetch_array($selp);
 								   $sprice=$rows['sprice'];
@@ -138,16 +138,16 @@ include("dbcon.php");
 									$totcreditstock+=$amount;
 									}
 								  
-								  $user_query=mysqli_query($con,"select quantityremoved as qty2,item from stock where action='debit' and date>='$date1' and date<='$date2' and coopid='$_SESSION[coopid]'")or die(mysqli_error($con));
+								  $user_query=mysqli_query($con,"select quantityremoved as qty2,item from stock where action='debit' and date>='$date1' and date<='$date2' and coopid='$_SESSION[coopid]' group by item")or die(mysqli_error($con));
 								  $totdebitstock=0;
 									while($row=mysqli_fetch_array($user_query)){
 									$qty2=$row['qty2'];
 									$item=$row['item'];
-					              $selp2=mysqli_query($con,"select sprice from levels where item='item' 
+					              $selp2=mysqli_query($con,"select sprice from levels where item='$item' 
 								   and coopid='$_SESSION[coopid]'")or die("FAILED SELLING PRICE".mysqli_error($con));
 								   $rows1=mysqli_fetch_array($selp2);
 								   $sprice1=$rows1['sprice'];
-								   $amount=$sprice*$qty2;
+								   $amount=$sprice1*$qty2;
 
 									$totdebitstock+=$amount;
 									}
@@ -319,16 +319,16 @@ print("<tr bgcolor=white>
 
 <?PHP
 		//CREDITS IN
-								  $user_query=mysqli_query($con,"select value from amadeni where  date>='$date1' and date<='$date2' and coopid='$_SESSION[coopid]' 
+								  $user_querycreditout=mysqli_query($con,"select value from amadeni where  date>='$date1' and date<='$date2' and coopid='$_SESSION[coopid]' 
 								  and type='cooperative'")or die("FAILED AMADENI COOPS".mysqli_error($con));
 								  $totcreditout=0;
-									while($row=mysqli_fetch_array($user_query)){
-									$amount=$row['value'];
+									while($rowcreditout=mysqli_fetch_array($user_querycreditout)){
+									$amount=$rowcreditout['value'];
 									
 
 									$totcreditout+=$amount;
 								}
-$creditoutf=number_format($amount);
+$creditoutf=number_format($totcreditout);
 print("<tr bgcolor=white>
 
 <td align=left>Coop Credit</td><td align=left> $creditoutf</td>

@@ -1,4 +1,5 @@
 <?php session_start();
+ob_start();
 ?>
 <!DOCTYPE html><html moznomarginboxes mozdisallowselectionprint>
 <head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
@@ -17,20 +18,18 @@ vertical-align: top; font-weight: normal }#printable-content * { border-width: 0
 <div class="panel-heading"><table style="border-collapse: separate; width: 100%"><tr><td style="padding-right: 10px; white-space: nowrap; width: 1px; height: 32px">
 <span class="header">BUDGET LINES</span></td> 
 <?php
-$date1=$_POST['date1'];
-$date2=$_POST['date2'];
-$account=$_POST['account'];
-
+$date1=$_GET['date1'];
+$date2=$_GET['date2'];
+$account=$_GET['account'];
 ?>
-<?php echo"EXPORT TO EXCEL <a href='detailedbudgetlineexcel.php?date1=$date1&date2=$date2&account=$account'><img src='images/xls.png'>";?>
 
-<img src="resources/ajax-loader.gif" style="display: none; margin-left: 10px; margin-right: 10px" id="email-ajax-indicator" /></div></div></div></div>
+</div></div></div></div>
 </td><td></td></tr></table></div>
 <div class="panel-body well"><div id="printable-content" class="panel" style="font-size: 12px; float: left; min-width: 800px">
 
 
 
-<table style="padding: 30px"><thead><tr><th style="font-weight: bold; font-size: 16px; text-align: center; padding-bottom: 10px" colspan="2"
+<table style="padding: 30px;" border="1"><thead><tr><th style="font-weight: bold; font-size: 16px; text-align: center; padding-bottom: 10px" colspan="2"
 ><?php echo"$account Budget line and its usage in from $date1 until $date2";?></th></tr>
 <tr><th style="border-bottom-width: 1px"></th>
 <th style="border-bottom-width: 1px; font-weight: bold; width: 80px; padding: 3px; text-align: right"></th></tr>
@@ -56,7 +55,8 @@ $account=$_POST['account'];
 								 
                                   <?php 
 								include('dbcon.php');
-								  
+                                header("Content-type: application/vnd-ms-excel");
+                                header("Content-Disposition: attachment; filename=$account .xls");
 								  $user_query=mysqli_query($con,"select * from expenses WHERE duedate>='$date1' and duedate<='$date2' and account='$account' and coopid='$_SESSION[coopid]'")or die(mysqli_error($con));
 								  $totexpense=$i=0;
 									while($row=mysqli_fetch_array($user_query)){

@@ -14,21 +14,39 @@
 <div style="padding: 10px 15px; border-radius: 3px; border: 1px solid #ddd; background-color: #F5F5F5; box-shadow: 1px 1px 0 #FFFFFF inset; color: #CCCCCC; 
 font-size: 18px; font-weight: bold; line-height: 20px; text-shadow: 2px 2px 0 #FFFFFF;">SETTING STOCK ITEMS PRICES
                   </DIV>
+				  <br><br>
 <div class="panel-body">
-
+<?php
+if(isset($_SESSION['success']))
+{
+	echo"$_SESSION[success]";
+	unset($_SESSION["success"]);
+}
+if(isset($_SESSION['deny']))
+{
+	echo"$_SESSION[deny]";
+	unset($_SESSION["deny"]);
+}
+?>
 <?php include('header.php'); ?>
-
+<script type="text/javascript" src="script.js"></script>
 
 <div class="panel panel-default"><div class="panel-heading"><span class="header">
 
 <FORM action="savepricestock.php" method="post">
 <div class="panel-body" style="background-color: #f9f9f9; box-shadow: inset 0px 1px 0px #fff; padding: 40px"><table><tr><td style="padding: 0px">
 <div class="form-group">
+<input type="button" value="+" class="" onClick="addRow('dataTable');" />
+							<input type="button" value="Remove"  onClick="deleteRow('dataTable');" />
+							<table id="dataTable">
+							<tbody id="budget-based" style="display: YES;">
+							<td><input type="checkbox" required="required" name="chk[]" checked="checked" /></td>
 <td style="padding: 0px"><label>Item</label>
-                        <select  name="item" type="text" 
-						class="form-control input-sm" id="item" style="width: 180px; text-align: center" placeholder="UBWOKO BW'IFUMBIRE" required />
-						<option></option>
+                        <input  name="item[]" type="text" 
+						class="form-control input-sm" id="item" style="width: 180px; text-align: center" placeholder="Item name" required />
+						
                                   <?php 
+								  /*
 								  $year=date("Y");
 								include('dbcon.php');
 								  
@@ -37,15 +55,16 @@ font-size: 18px; font-weight: bold; line-height: 20px; text-shadow: 2px 2px 0 #F
 									$account=$row['item']; 
 									echo"<option>$account</option>";
 									}
+									*/
 									?>
 						</select>
 						</div>
 						</td>
 <div class="form-group">
   <td style="padding: 0px">                      
-<label>Purchasing Price </label><input type="text" class="form-control input-sm" style="width: 100px"  name="pprice" required />
-</div></td><td style="padding: 0px; padding-left: 5px"><div class="form-group"><label>Selling Price</label>
-<input type="text" class="form-control input-sm" style="width: 100px; text-align: center" name="sprice" placeholder="" required  />
+<label>Purchasing Price </label><input type="text" class="form-control input-sm" style="width: 100px"  name="pprice[]" required />
+</div></td><td style="padding: 0px; padding-left: 5px"></td><div class="form-group"><td><label>Selling Price</label>
+<input type="text" class="form-control input-sm" style="width: 100px; text-align: center" name="sprice[]" placeholder="" required  />
 </div></td></tr></table>
 <!-- <div class="form-group"><label>Year</label><div class="controls">
 <select  name="year" required><option></option>

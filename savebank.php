@@ -45,8 +45,9 @@
 
    if ($action == 'debit') {
       $slip = $_POST['slip'];
+      $income = $_POST['income'];
       $filename = $_FILES["photodebit"]["name"];
-
+$year=date("Y");
       move_uploaded_file($_FILES["photodebit"]["tmp_name"], "pieces/" . $filename);
       $balance = $balance + $particular;
 
@@ -54,7 +55,8 @@
       while ($info = mysqli_fetch_array($l1)) {
          $bank = $info['Level'];
       }
-
+      $issa = mysqli_query($con, "update sources set amountremain=amountremain-'$particular',status='1' where year='$year' and codename='$income' and coopid='$_SESSION[coopid]' ") or die(mysqli_error($con));
+      $insert_income=mysqli_query($con,"insert into income values('','$income','$particular',now(),'$_SESSION[coopid]')")or die(mysqli_error($con));
       $upspeak1 = mysqli_query($con, "insert into bank values('null','$bank','$subcat','$names','$particular','$bordereau','$action','$balance','$date','Slip','$slip','',
 	  '$_SESSION[coopid]','$ref','')")
          or die("whats hell ON BANK" . mysqli_error($con));
@@ -165,8 +167,6 @@
          $bank = $info['Level'];
       }
 
-
-
       $sel1 = mysqli_query($con, "select sum(amount) as am from bank where action='debit' and account='$subcat' group by account");
       $med1 = mysqli_fetch_array($sel1);
       $amountdebit = $med1['am'];
@@ -230,8 +230,10 @@ cheque" . mysqli_error($con));
             </table> <br><br>';
             $output .= '<table width=100% border=1 cellpadding=5 cellspacing=0>
             <tr><th>Date</th><th>Cheque No</th><th>Bank</th><th>Particular</th><th>Reason</th><th>Amount</th></tr>
-            <tr><td>' . $date . '</td><td>' . $chequeno . '</td><td>' . $bank . ' ' . ' ' . $subcat . '</td><td>' . $names . '</td><td>' . $bordereau . '</td><td>' . $balance . '</td></tr></table><br><br><br><br>';
+            <tr><td>' . $date . '</td><td>' . $chequeno . '</td><td>' . $bank . ' ' . ' ' . $subcat . '</td><td>' . $names . '</td><td>' . $bordereau . '</td><td>' . $particular. '</td></tr></table><br><br><br><br>';
             $output .= 'I ' . $names . ' accept that I have received the amount stated above from COOPERATIVE NAME <BR><BR><BR>';
+
+            //ECHO"$output";
 
             $pdf = new Pdf();
             $file_name = 'PaymentProof-.pdf';

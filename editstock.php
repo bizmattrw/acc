@@ -338,9 +338,9 @@ font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 1px 1px 0 #F
                                   <?php 
 								include('dbcon.php');
 								  $id=$_GET['id'];
-$sel=mysql_query("select * from stock where id='$id'");
+$sel=mysqli_query($con,"select * from stock where id='$id'");
 
-while($med=mysql_fetch_array($sel))
+while($med=mysqli_fetch_array($sel))
 {
 $item=$med['item'];
 $qa=$med['quantityadded'];

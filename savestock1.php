@@ -25,7 +25,7 @@ $cqty=$speak['currentquantity'];
 //$amount=$value*$quantity;
 //$balance=$balance+$amount;
 $cqty=$cqty+$quantity;
-$upspeak1=mysqli_query($con,"insert into stock values('','$item','$reason','$quantity','','credit','$cqty','','$date','','$_SESSION[coopid]')")or die(mysqli_error($con));
+$upspeak1=mysqli_query($con,"insert into stock values('','$item','$reason','$quantity','','credit','$cqty','','$date','','$_SESSION[coopid]',0)")or die(mysqli_error($con));
 // mysqli_query($con,"insert into retained values('','$value','0','$date','$item','$_SESSION[coopid]')")or die(mysqli_error($con));
    echo"Data saved successfully..";
      echo"<meta http-equiv=\"refresh\" content=\"1;URL=updatestock.php\">";

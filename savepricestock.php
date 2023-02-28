@@ -7,6 +7,7 @@
 </head>
 
 <body>
+
 <?php
 include('dbcon.php');
 if(isset($_POST['submit']))
@@ -16,10 +17,25 @@ $pprice=$_POST['pprice'];
 $sprice=$_POST['sprice'];
 $item=$_POST['item'];
 //$season=$_POST['season'];
-$add="insert into levels values('','$pprice','$sprice','','','$item','$_SESSION[coopid]')"or die(mysqli_error($con));
-mysqli_query($con,$add);
-print("<FONT COLOR=red><b> added!</FONT>");
+$year=date("Y");
+for($i=0;$i<count($item);$i++)
+{
+	$sel_query=mysqli_query($con,"select * from levels where item='$item[$i]'") or die(mysqli_error($con));
+	if(mysqli_num_rows($sel_query)>0)
+	{
+		echo"<script>alert('the Item already exists in the stock')</script>";
+		$_SESSION['deny']="<div style='background-color:red; width:40em;border-radius:1em'> Sorry the $item[$i] Already exists</div>";
 	header("location: pricestock.php");
+	}
+	else {
+$add="insert into levels values('','$pprice[$i]','$sprice[$i]','$year','$item[$i]','$_SESSION[coopid]')";
+mysqli_query($con,$add)or die(mysqli_error($con));
+
+print("<SCRIPT>alert('DATA SAVED SUCCESSFULLY)</SCRIPT>");
+$_SESSION['success']="<div style='background-color:yellow; width:40em;border-radius:1em'>DATA SAVED SUCCESSFULLY</div>";
+	header("location: pricestock.php");
+}
+}
 }
 ?>
 
