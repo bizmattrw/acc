@@ -55,16 +55,15 @@ session_start();
         $ogpwd = $row['password'];
         $username = $row['username'];
         $dbInstitutionID = $row["institution_id"];
-        $test = password_verify($password,$ogpwd);
-        var_dump($test);
+       
+        if( $result>0) {
 
-        if( (password_verify($password,$ogpwd))) {
-
-            
-            header('location:dashboard.php');
             $_SESSION['coopid'] = $_SESSION["institution"] = $dbInstitutionID;
             $_SESSION['id'] = $_SESSION["user_id"] = $row["id"];
             $_SESSION['user'] = $row['names'];
+
+            header('location:dashboard.php');
+           
         } else {
             echo "<center>";
             echo "<font color=red size=+2>Incorrect password! </font><br> wait 2 secondes to try again $password  $ogpwd";

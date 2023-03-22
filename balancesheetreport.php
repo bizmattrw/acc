@@ -315,7 +315,21 @@ print("<tr bgcolor=white>
 }
 
 
-?>	
+  $selectIncome=mysqli_query($con,"select amount from income where  date>='$date1' and date<='$date2' and coopid='$_SESSION[coopid]' ")or die("FAILED TO SELECT INCOME".mysqli_error($con));
+								  $totincome=0;
+									while($rowIncome=mysqli_fetch_array($selectIncome)){
+									$amountIncome=$rowIncome['amount'];
+									$totincome+=$amountIncome;
+								}
+$totincomef=number_format($totincome);
+print("<tr bgcolor=white>
+
+<td align=left>Incomes</td><td align=left> $totincomef</td>
+
+</tr>");
+
+
+?>
 
 <?PHP
 		//CREDITS IN
@@ -335,11 +349,10 @@ print("<tr bgcolor=white>
 
 </tr>");
 
-
 ?>
 
 <?PHP
-$totliab=$totliabilities+$totcreditout;
+$totliab=$totliabilities+$totcreditout+$totincome;
 $totliabf=number_format($totliab);
 print("<tr bgcolor=white>
 

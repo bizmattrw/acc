@@ -347,12 +347,16 @@ font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 2px 2px 0 #F
 
 					<form action="savecaisse.php" method="post">
 						<div class="panel-body" style="background-color: #f9f9f9; box-shadow: inset 0px 1px 0px #fff; padding: 30px">
+						<?php $debitAmount= fetchNow("SUM(amount)", "caisse", "coopid='$_SESSION[coopid]' AND action='debit' ORDER BY id DESC LIMIT 1");
+						$creditAmount= fetchNow("SUM(amount)", "caisse", "coopid='$_SESSION[coopid]' AND action='credit' ORDER BY id DESC LIMIT 1");
+						$difAmount=$debitAmount-$creditAmount;
+						 ?>
 							<table>
 								<tr>
 									<td><label style="display: inline;">Caisse: </label></td>
 									<td style="padding: 0px; padding-left: 5px">
 										<div class="form-group">
-											<input style="display: inline;" value="<?php echo fetchNow("SUM(amount)", "caisse", "1 ORDER BY id DESC LIMIT 1") ?>" name="caisse-balance" type="text" class="form-control input-sm" id="caisse-balance" style="width: 100px; text-align: center" placeholder="Amount" required readonly />
+											<input style="display: inline;" value="<?php echo$difAmount;?>" name="caisse-balance" type="text" class="form-control input-sm" id="caisse-balance" style="width: 100px; text-align: center" placeholder="Amount" required readonly />
 										</div>
 									</td>
 								</tr>
@@ -393,7 +397,7 @@ font-size: 20px; font-weight: bold; line-height: 28px; text-shadow: 2px 2px 0 #F
 												 type="text" class="form-control input-sm budget-line" style="width: 180px; text-align: center" placeholder="Income Resources" required onchange="loadBugdetLineAmount(this)">
 													<option></option>
 													<?php
-													$linesResult = getItems("account", ["id", "codename"], "coopid = '$cooperativeId'");
+													$linesResult = getItems("account", ["id", "codename"], "coopid = '$_SESSION[coopid]'");
 													if ($linesResult["length"] > 0) {
 														$lines = $linesResult["rows"];
 

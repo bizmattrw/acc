@@ -13,8 +13,8 @@ if (!empty($_GET["type"]) && $_GET["type"] == "bank-account-amount") {
     $bank = fetchNow("Level", "level", "Level_id = '$bank'");
     $account = $_GET["account"];
     $account = fetchNow("Combination", "combination", "id = '$account'");
-    $debited = fetchNow("SUM(amount)", "bank", "bankname = '$bank' AND account = '$account' AND action = 'debit' ORDER BY id DESC LIMIT 1");
-    $credited = fetchNow("SUM(amount)", "bank", "bankname = '$bank' AND account = '$account' AND action = 'credit' ORDER BY id DESC LIMIT 1");
+    $debited = fetchNow("SUM(amount)", "bank", "bankname = '$bank' AND account = '$account' AND action = 'debit' and coopid='$_SESSION[coopid]' ORDER BY id DESC LIMIT 1");
+    $credited = fetchNow("SUM(amount)", "bank", "bankname = '$bank' AND account = '$account' AND action = 'credit' AND coopid='$_SESSION[coopid]' ORDER BY id DESC LIMIT 1");
     echo $debited - $credited;
 }
 

@@ -27,7 +27,7 @@ if($chk2!=null)
  exit();	
 }
 else{
-$add=mysqli_query($con,"insert into sources values('','$account[$i]','$year','','$amount[$i]','$amount[$i]','$_SESSION[coopid]')")or die(mysqli_error($con));
+$add=mysqli_query($con,"insert into sources values('','$account[$i]','$year','','$amount[$i]','$amount[$i]','$_SESSION[coopid]','')")or die(mysqli_error($con));
  echo "<meta http-equiv=\"refresh\" content=\"2;URL='sources.php'\">";echo"<br><br><br><center><font color=green size=+2>Data saved successfully!</font><br>";
 }
 }
